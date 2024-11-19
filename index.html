@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Old Money Clothes</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <button id="options-button" class="options-button">☰</button> <!-- Options button -->
+    <div class="header-container">
+    <a href="#" class="header-image-link">
+        <img src="logotransparentcolor.png" alt="Header Image" class="header-image"> <!-- Replace with actual image path -->
+    </a>
+</div>
+    <nav>
+        <ul>
+            <li><a href="#wishlist">❤️</a></li> <!-- Wishlist Icon -->
+            <li><a href="#bag">👜</a></li> <!-- Bag Icon -->
+            <li><a href="#account">👤</a></li> <!-- Account Icon -->
+            <li><a href="#search" id="search-button">🔍</a> <!-- Search Icon --></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="sidebar-menu" class="sidebar-menu">
+    <button id="close-menu" class="close-button">✖</button>
+    <ul>
+        <li><a href="#link1">Link 1</a></li>
+        <li><a href="#link2">Link 2</a></li>
+        <li><a href="#link3">Link 3</a></li>
+        <li><a href="#link4">Link 4</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+</div>
+
+    <div class="slider">
+        <div class="slide active">
+            <img src="mens_jacket.png" alt="Slide 1"> <!-- Replace with actual image path -->
+        </div>
+        <div class="slide">
+            <img src="mens_shirt.png" alt="Slide 2"> <!-- Replace with actual image path -->
+        </div>
+        <div class="slide">
+            <img src="mens_pants.png" alt="Slide 3"> <!-- Replace with actual image path -->
+        </div>
+        <!-- Add more slides as needed -->
+        
+        <div class="controls">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+        </div>
+    </div>
+
+    <section class="categories">
+    <!-- Category 1: Men's Clothing -->
+    <div class="category">
+        <h2 class="category-title">Men's Clothing</h2>
+        <div class="product-links">
+            <a href="https://oldmoneyclothes.github.io/products?category=mens-jacket" class="product-box">
+                <img src="mens_jacket.png" alt="Men's Jacket" title="Men's Jacket">
+                <span class="caption">Men's Jacket</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=mens-shirt" class="product-box">
+                <img src="mens_shirt.png" alt="Men's Shirt" title="Men's Shirt">
+                <span class="caption">Men's Shirt</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=mens-pants" class="product-box">
+                <img src="mens_pants.png" alt="Men's Pants" title="Men's Pants">
+                <span class="caption">Men's Pants</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=mens-shoes" class="product-box">
+                <img src="mens_shoes.png" alt="Men's Shoes" title="Men's Shoes">
+                <span class="caption">Men's Shoes</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=mens-accessory" class="product-box">
+                <img src="mens_accessory.png" alt="Men's Accessory" title="Men's Accessory">
+                <span class="caption">Men's Accessory</span>
+            </a>
+        </div>
+        <a href="https://oldmoneyclothes.github.io/products?category=mens-clothing" class="view-all-button">View All Men's Clothing</a>
+    </div>
+
+    <!-- Category 2: Women's Clothing -->
+    <div class="category">
+        <h2 class="category-title">Women's Clothing</h2>
+        <div class="product-links">
+            <a href="https://oldmoneyclothes.github.io/products?category=womens-dress" class="product-box">
+                <img src="womens_dress.png" alt="Women's Dress" title="Women's Dress">
+                <span class="caption">Women's Dress</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=womens-skirt" class="product-box">
+                <img src="womens_skirt.png" alt="Women's Skirt" title="Women's Skirt">
+                <span class="caption">Women's Skirt</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=womens-top" class="product-box">
+                <img src="womens_top.png" alt="Women's Top" title="Women's Top">
+                <span class="caption">Women's Top</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=womens-shoes" class="product-box">
+                <img src="womens_shoes.png" alt="Women's Shoes" title="Women's Shoes">
+                <span class="caption">Women's Shoes</span>
+            </a>
+            <a href="https://oldmoneyclothes.github.io/products?category=womens-accessory" class="product-box">
+                <img src="womens_accessory.png" alt="Women's Accessory" title="Women's Accessory">
+                <span class="caption">Women's Accessory</span>
+            </a>
+        </div>
+        <a href="https://oldmoneyclothes.github.io/products?category=womens-clothing" class="view-all-button">View All Women's Clothing</a>
+    </div>
+
+    <!-- Additional categories can be added here -->
+</section>
+
+<!-- Comment on adding more products -->
+<!-- To add more products in the future, simply replicate the 'a' tag structure within the 'product-links' div,
+     updating the 'href' attribute with the appropriate URL and category parameter. Ensure that the images and
+     captions correspond to the new products being added. -->
+
+   <footer>
+    <div class="footer-content">
+        <div class="footer-links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="#about" class="footer-button">About Us</a></li>
+        <li><a href="#services" class="footer-button">Services</a></li>
+        <li><a href="#privacy" class="footer-button">Privacy Policy</a></li>
+        <li><a href="#terms" class="footer-button">Terms of Service</a></li>
+    </ul>
+</div>
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="social-media">
+    <h3>Follow Us</h3>
+    <ul>
+        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+</div>
+    </div>
+    <p>&copy; 2024 Old Money Clothes. All rights reserved.</p>
+</footer>
+
+    <!-- JavaScript for Automatic Slider -->
+    <script>
+// Automatic slider functionality
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.style.opacity = '0'; // Hide all slides
+    });
+    
+    slides[index].classList.add('active');
+    slides[index].style.opacity = '1'; // Show the active slide
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides; // Loop back to first slide
+    showSlide(currentIndex);
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Loop back to last slide
+    showSlide(currentIndex);
+}
+
+// Event listeners for manual controls
+document.querySelector('.next').addEventListener('click', nextSlide);
+document.querySelector('.prev').addEventListener('click', prevSlide);
+
+// Automatic transition every 5 seconds
+setInterval(nextSlide, 5000);
+showSlide(currentIndex); // Initial call to show the first slide
+
+document.getElementById('options-button').addEventListener('click', function() {
+    document.getElementById('sidebar-menu').classList.toggle('open');
+});
+
+document.getElementById('close-menu').addEventListener('click', function() {
+    document.getElementById('sidebar-menu').classList.remove('open');
+});
+
+
+    (function() {
+        emailjs.init("kJSn5KFaWNvSEnS2Z"); // Replace with your EmailJS user ID
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            emailjs.sendForm('oldmoneyclothes', 'aryandadwal', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    alert('Failed to send message. Please try again later.');
+                    console.error('Error:', error);
+                });
+        });
+    })();
+
+// Function to get URL parameters
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Apply filter based on URL parameter
+window.onload = function() {
+    var category = getUrlParameter('category');
+    if (category) {
+        // Logic to filter products based on the category
+        console.log('Filter applied for category:', category);
+        // Add your filtering logic here
+    }
+};
+
+</script>
+
+</body>
+
+</html>
+
+<style>
+/* CSS Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f2f2; /* Dark background for the whole page */
+    color: white; /* Light text color for contrast */
+}
+
+header {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between title and nav */
+    background-color: #000000; /* Dark background for header */
+    padding: 20px; /* Padding for header */
+    color: white; /* Text color */
+}
+
+.header-container {
+    text-align: center; /* Center content */
+    position: relative; /* Position relative for absolute children */
+}
+
+.header-content {
+    text-align: center; /* Center content */
+    width: 100%; /* Full width */
+}
+
+.header-image-link {
+    display: inline-block; /* Allow padding and margin */
+}
+
+.header-image {
+    width: 90%; /* Set a fixed width for the image (adjust as needed) */
+    max-width: 500px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.header-image-link:hover .header-image {
+    transform: scale(1.10); /* Grow the image on hover */
+}
+
+h1 {
+    margin: 0; /* Remove default margin */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for horizontal layout */
+}
+
+nav ul li {
+    margin-left: 20px; /* Space between icons */
+}
+
+nav ul li a {
+    color: white; /* Button text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 24px; /* Increase icon size */
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: scale(1.2); /* Increase size on hover */
+}
+
+.options-button {
+    padding: 10px;
+    background-color: #555; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.options-button:hover {
+    background-color: #777; /* Change background on hover */
+    transform: scale(1.30);
+}
+
+.sidebar-menu {
+    position: fixed; /* Fixed position to cover part of the screen */
+    top: 0;
+    left: -20%; /* Start hidden off-screen */
+    width: 20%; /* Width of the sidebar menu */
+    height: 100%; /* Full height */
+    background-color: #000000; /* Dark background for sidebar */
+    transition: left 0.3s ease; /* Smooth transition for sliding effect */
+    z-index: 1000;
+}
+
+.sidebar-menu.open {
+    left: 0; /* Slide in when open */
+}
+
+.sidebar-menu ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 20px; /* Padding inside menu */
+}
+
+.sidebar-menu ul li {
+    margin-bottom: 10px; /* Space between links */
+}
+
+.sidebar-menu ul li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    overflow: hidden; /* Hide overflow */
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 80%; /* Default size for inactive slides */
+    height: auto; /* Maintain aspect ratio */
+    transform: translate(-50%, -50%); /* Center the image */
+    opacity: 0; /* Hide all slides initially */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+}
+
+.slide.active {
+    opacity: 1; /* Show active slide */
+}
+
+.slide img {
+    width: 100%; /* Scale image to full width of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.product-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between product boxes */
+}
+
+.category-title {
+    font-size: 28px; /* Increase heading size */
+    margin-bottom: 10px; /* Space below the heading */
+    text-align: center; /* Center align the heading */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition */
+}
+
+.category-title:hover {
+    color: #777; /* Change color on hover */
+    transform: scale(1.2);
+}
+
+.product-box {
+    width: 19.4%; /* Adjust width as needed */
+    overflow: hidden; /* Hide overflow */
+    position: relative; /* Position relative for absolute children */
+    border-radius: 5px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    display: block;
+}
+
+.product-box:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.product-box img {
+    width: 100%; /* Scale image to full width of the container */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Cover the container, cropping if necessary */
+    border-radius: 5px; /* Optional: rounded corners */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.product-box img:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.caption {
+    position: absolute; /* Position relative to product box */
+    bottom: 0; /* Align to bottom */
+    left: 0; /* Align to left */
+    color: white; /* Text color */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    padding: 5px; /* Padding around text */
+}
+
+.view-all { display: block; margin-top: 10px; color: blue; text-decoration: underline; }
+.categories { padding: 20px; background-color: #f4f4f4; color: black; }
+.view-all-button {
+    display: inline-block; /* Allows padding and margin */
+    padding: 10px 20px; /* Button padding */
+    background-color: #000000; /* Button color */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-all-button:hover {
+    background-color: #777; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+
+.category {
+    text-align: center; /* Center align category content */
+}
+
+footer {
+    background-color: #000; /* Dark background */
+    color: white; /* Light text color */
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-links, .contact-form, .social-media {
+    flex: 1 1 30%; /* Adjusts the width of each section */
+    margin: 10px;
+}
+
+.footer-links ul, .social-media ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.footer-links a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-links a:hover {
+    background-color: #555; /* Change background on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px; /* Add padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border styling */
+}
+
+.contact-form button {
+    background-color: #4CAF50; /* Green color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px; /* Padding for better appearance */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.contact-form button:hover {
+    background-color: #66BB6A; /* Lighter shade of green on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.social-media ul {
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+.social-media ul {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Center the icons */
+    padding: 0; /* Remove padding */
+}
+
+.social-media li {
+    margin: 0 10px; /* Space between icons */
+}
+
+.social-media a {
+    color: white; /* Icon color */
+    font-size: 24px; /* Size of the icons */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.social-media a:hover {
+    transform: scale(1.2); /* Slightly increase size on hover */
+}
+}
+
+.footer-links ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+}
+
+.footer-button {
+    display: inline-block; /* Allows padding and margin */
+    padding: 10px 20px; /* Button padding */
+    background-color: #000000; /* black background color */
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-button:hover {
+    background-color: #66BB6A; /* Lighter green on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+</style>
