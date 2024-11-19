@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Space between title and search */
+            align-items: center; /* Center items vertically */
+        }
+
+        .header-right {
+            display: flex; /* Align search input and button in a row */
+            align-items: center; /* Center vertically */
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px; /* Space between input and button */
+        }
+
+        .filters {
+            width: 20%;
+            float: left;
+            padding: 15px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap onto new lines */
+            gap: 15px; /* Space between items */
+        }
+
+        .product-item {
+            flex-basis: calc(33.33% - 15px); /* Each item takes up one-third of the row, minus gap */
+            box-sizing: border-box; /* Include padding and border in the element's total width */
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05); /* Scale up slightly */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Increase shadow for depth */
+        }
+
+        @media (max-width: 768px) {
+            .product-item {
+                flex-basis: calc(100% - 15px); /* Full width on mobile for flexbox */
+                max-width: calc(100% - 15px); /* Ensure max width does not exceed full screen */
+            }
+        }
+
+        .product-item img {
+            width: 100%; /* Ensure images fill their container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .product-details {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position for overlay effect */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            padding: 20px;
+            overflow-y: auto; /* Scrollable if content exceeds viewport */
+        }
+
+        .product-details h2 {
+            margin-top: 0; /* Remove top margin */
+        }
+
+        .close-btn {
+            cursor: pointer;
+            color: red; /* Close button color */
+        }
+
+        footer {
+            clear: both; /* Clear floats */
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Old Money Clothes</h1>
+        <div class="header-right">
+          <input type="text" id="search" placeholder="Search products...">
+          <button id="search-btn">Search</button>
+        </div>
+    </header>
+
+    <aside class="filters">
+        <h2>Filters</h2>
+
+        <!-- Category Filter -->
+        <div>
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="">All</option>
+                <option value="men">Men's Clothing</option>
+                <option value="women">Women's Clothing</option>
+            </select>
+        </div>
+
+         <!-- Product Type Filter -->
+         <div>
+             <label for="type">Product Type:</label>
+             <select id="type">
+                 <option value="">All</option>
+                 <option value="jacket">Jackets</option>
+                 <option value="shirt">Shirts</option>
+                 <option value="dress">Dresses</option>
+             </select>
+         </div>
+
+         <!-- Color Filter -->
+         <div>
+             <h3>Color:</h3>
+             <label><input type="checkbox" value="red" class="color-filter"> Red</label><br/>
+             <label><input type="checkbox" value="blue" class="color-filter"> Blue</label><br/>
+             <label><input type="checkbox" value="green" class="color-filter"> Green</label><br/>
+             <label><input type="checkbox" value="black" class="color-filter"> Black</label><br/>
+             <label><input type="checkbox" value="white" class="color-filter"> White</label><br/>
+         </div>
+
+         <!-- Size Filter -->
+         <div>
+             <label for="size">Size:</label>
+             <select id="size">
+                 <option value="">All</option>
+                 <option value="S">Small</option>
+                 <option value="M">Medium</option>
+                 <option value="L">Large</option>
+             </select>
+         </div>
+
+         <!-- Price Filter -->
+         <div>
+             <label for="price">Price Range:</label>
+             <input type="range" id="price" min="0" max="1000" step="10" value="500">
+             <span id="price-display">$0 - $500</span> <!-- Display selected price range -->
+         </div>
+
+         <!-- Apply Filters Button -->
+         <button id="apply-filters">Apply Filters</button>
+
+         <!-- Reset Filters Button -->
+         <button id="reset-filters">Reset Filters</button>
+
+     </aside>
+
+     <!-- Product List -->
+     <main class="product-list">
+         <!-- Product items will be dynamically inserted here -->
+     </main>
+
+     <!-- Product Details Pane -->
+     <div class="product-details" id="product-details">
+         <span class="close-btn" id="close-btn">&times;</span>
+         <h2 id="detail-name"></h2>
+         <img id="detail-img" src="" alt="" style="max-width=100%; height:auto;">
+         <p id=detail-price></p>
+         <p id=detail-description></p>
+     </div>
+
+     <!-- Footer -->
+     <footer>
+         <p>&copy; 2024 Old Money Clothes. All rights reserved.</p>
+     </footer>
+
+     <!-- JavaScript -->
+     <script>
+// Sample product data
+const products = [
+   { id :1,name :"Men's Jacket",category :"men",type :"jacket",price :150,imgSrc :"mens_jacket.png",description :"A stylish men's jacket perfect for any occasion.", color:["red","blue"], size:["M","L"] },
+   { id :2,name :"Women's Dress",category :"women",type :"dress",price :120,imgSrc :"womens_dress.png",description :"An elegant dress for special events.", color:["green","black"], size:["S","M"] },
+   { id :3,name :"Men's Shirt",category :"men",type :"shirt",price :80,imgSrc :"mens_shirt.png",description :"A comfortable men's shirt suitable for casual wear.", color:["white","blue"], size:["M","L"] },
+   { id :4,name :"Women's Jacket",category :"women",type :"jacket",price :200,imgSrc :"womens_jacket.png",description :"A warm women's jacket for chilly days.", color:["black"], size:["S","M"] },
+   { id :5,name :"Casual Men's Shirt",category :"men",type :"shirt",price :60,imgSrc :"casual_mens_shirt.jpg",description :"A casual shirt perfect for everyday wear.", color:["blue"], size:["M"] },
+   { id :6,name :"Summer Dress",category :"women",type :"dress",price :90,imgSrc :"summer_dress.jpg",description :"A light summer dress for warm weather.", color:["yellow"], size:["S"] },
+];
+
+// Function to display products
+function displayProducts(productsToDisplay) {
+   const productList = document.querySelector('.product-list');
+   productList.innerHTML = ''; // Clear existing products
+   productsToDisplay.forEach(product => {
+       const productItem = document.createElement('div');
+       productItem.className = 'product-item';
+       
+       productItem.innerHTML = `
+           <img src="${product.imgSrc}" alt="${product.name}">
+           <h3>${product.name}</h3>
+           <p>Price:$${product.price}</p>`;
+       
+       // Add click event to open product details
+       productItem.addEventListener('click', () => openProductDetails(product));
+       
+       productList.appendChild(productItem);
+   });
+}
+
+// Function to open product details
+function openProductDetails(product) {
+   document.getElementById('detail-name').innerText = product.name;
+   document.getElementById('detail-img').src = product.imgSrc;
+   document.getElementById('detail-price').innerText = `Price:$${product.price}`;
+   document.getElementById('detail-description').innerText = product.description;
+
+   // Show the details pane
+   document.getElementById('product-details').style.display = 'block';
+}
+
+// Event listener for close button
+document.getElementById('close-btn').addEventListener('click', function() {
+   document.getElementById('product-details').style.display = 'none'; // Hide details pane
+});
+
+// Event listener for search button
+document.getElementById('search-btn').addEventListener('click', function() {
+    performSearch();
+});
+
+// Event listener for pressing Enter in the search input
+document.getElementById('search').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') { // Check if Enter key is pressed
+        performSearch();
+    }
+});
+
+// Function to perform search
+function performSearch() {
+    const searchTerm = document.getElementById('search').value.toLowerCase();
+    
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm)
+    );
+    
+    displayProducts(filteredProducts);
+}
+
+// Event listener for apply filters button
+document.getElementById('apply-filters').addEventListener('click', function() {
+   const selectedCategory = document.getElementById('category').value;
+   const selectedType = document.getElementById('type').value; // Get selected type
+   const selectedSize = document.getElementById('size').value; // Get selected size
+
+   // Get all checked color filters
+   const checkedColors = Array.from(document.querySelectorAll('.color-filter:checked')).map(checkbox => checkbox.value);
+
+   const filteredProducts = products.filter(product => 
+       (selectedCategory === '' || product.category === selectedCategory) &&
+       (selectedType === '' || product.type === selectedType) &&
+       (selectedSize === '' || product.size.includes(selectedSize)) && // Filter by size
+       (checkedColors.length === 0 || product.color.some(color => checkedColors.includes(color))) && // Filter by color
+       (product.price <= parseInt(document.getElementById('price').value))
+   );
+
+   displayProducts(filteredProducts);
+});
+
+// Event listener for reset filters button
+document.getElementById('reset-filters').addEventListener('click', function() {
+   // Reset all filter selections
+   document.getElementById('category').value = '';
+   document.getElementById('type').value = '';
+   document.getElementById('size').value = '';
+   
+   // Uncheck all color checkboxes
+   document.querySelectorAll('.color-filter').forEach(checkbox => {
+       checkbox.checked = false;
+   });
+
+   // Reset price range to default
+   document.getElementById('price').value = 500;
+   document.getElementById('price-display').innerText = `$0 - $500`;
+
+   // Display all products again
+   displayProducts(products);
+});
+
+// Update displayed price range when slider is adjusted
+document.getElementById('price').addEventListener('input', function() {
+   const minPrice = 0; // Minimum price
+   const maxPrice = this.value; // Current value of the slider
+   document.getElementById('price-display').innerText = `$${minPrice} - $${maxPrice}`; // Update display
+});
+
+// Initial display of all products when page loads
+displayProducts(products);
+     </script>
+
+</body>
+</html>
