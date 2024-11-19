@@ -217,18 +217,42 @@ document.getElementById('close-menu').addEventListener('click', function() {
 // Function to get URL parameters
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-// Apply filter based on URL parameter
+// Function to display products based on category
+function displayProducts(category) {
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = ''; // Clear existing products
+
+    const filteredProducts = products.filter(product => product.category === category);
+    
+    if (filteredProducts.length > 0) {
+        filteredProducts.forEach(product => {
+            const productBox = document.createElement('a');
+            productBox.className = 'product-box';
+            productBox.href = `#`;
+            productBox.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" title="${product.name}">
+                <span class="caption">${product.name}</span>`;
+            productContainer.appendChild(productBox);
+        });
+    } else {
+        productContainer.innerHTML = '<p>No products found in this category.</p>';
+    }
+}
+
+// Apply filter based on URL parameter when the page loads
 window.onload = function() {
-    var category = getUrlParameter('category');
+    const category = getUrlParameter('category');
     if (category) {
-        // Logic to filter products based on the category
         console.log('Filter applied for category:', category);
-        // Add your filtering logic here
+        displayProducts(category);
+    } else {
+        // Optionally display all products or a default message
+        displayProducts('mens-clothing'); // Default category if none is specified
     }
 };
 
